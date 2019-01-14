@@ -234,7 +234,13 @@ namespace IKVM.Reflection
 
 		internal Assembly Mscorlib
 		{
-			get { return Load("mscorlib"); }
+			get {
+#if CORECLR
+                return Load("System.Private.CoreLib");
+#else
+                return Load("mscorlib");
+#endif
+                }
 		}
 
 		private Type ImportMscorlibType(string ns, string name)

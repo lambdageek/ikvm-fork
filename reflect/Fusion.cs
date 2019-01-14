@@ -100,7 +100,13 @@ namespace IKVM.Reflection
 				throw new ArgumentException();
 			}
 
-			if (name2.Name != null && name2.Name.Equals("mscorlib", StringComparison.OrdinalIgnoreCase))
+#if !CORECLR
+            const string mscorlibName = "mscorlib";
+#else
+            const string mscorlibName = "System.Private.CoreLib";
+#endif
+
+            if (name2.Name != null && name2.Name.Equals(mscorlibName, StringComparison.OrdinalIgnoreCase))
 			{
 				if (name1.Name != null && name1.Name.Equals(name2.Name, StringComparison.OrdinalIgnoreCase))
 				{
