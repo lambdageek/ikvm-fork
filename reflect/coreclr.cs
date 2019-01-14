@@ -24,6 +24,7 @@
 using System;
 
 #if CORECLR
+#if !NETSTANDARD2_0
 namespace System.Diagnostics
 {
 	static class Debug
@@ -67,4 +68,5 @@ namespace System.Collections.Generic
 		}
 	}
 }
+#endif
 #endif
