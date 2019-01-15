@@ -101,6 +101,9 @@
   <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
     <DefineConstants>CORECLR;NO_SYMBOL_WRITER;NO_AUTHENTICODE</DefineConstants>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='net45'">
+    <DefineConstants>NO_AUTHENTICODE</DefineConstants>
+  </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net45'">
         <Compile Include="Impl\PdbWriter.cs" />
   </ItemGroup>
