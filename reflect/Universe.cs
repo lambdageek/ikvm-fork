@@ -513,6 +513,10 @@ namespace IKVM.Reflection
 		public Type Import(System.Type type)
 		{
 			Type imported;
+			if (type == null)
+			{
+			    type = typeof(void);
+			}
 			if (!importedTypes.TryGetValue(type, out imported))
 			{
 				imported = ImportImpl(type);
